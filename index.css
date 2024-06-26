@@ -1,0 +1,112 @@
+/* Custom CSS for styling modifications */
+body{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.card-header {
+  background-color: #fff; /* White background color */
+  color: #333; /* Dark text color */
+}
+
+.carousel-item img {
+  max-height: 300px; /* Limit image height */
+  object-fit: cover;
+}
+
+.carousel-caption {
+  position: static;
+  padding: 15px;
+}
+
+.card-caption {
+    margin-top: 25px;
+    font-weight: bolder;
+    font-size: x-large;
+    
+}
+
+ .meta {
+  font-size: 0.9em;
+  margin-top: 5px;
+  color: rgb(66, 65, 65);
+}
+
+.carousel-caption p {
+  margin-top: 10px; /* Space between meta info and description */
+}
+
+.card-flex{
+  display:flex;
+  flex-direction: column;
+}
+
+.card-body{
+  padding: 1rem;
+}
+
+.btn{
+  color: rgb(77, 76, 76);
+}
+
+.card-heading {
+  font-size: x-large;
+  font-weight: 600;
+  font-stretch:wider;
+}
+
+.container-style {
+  padding-right: 30px;
+  padding-left:30px;
+}
+
+nav {
+  padding-left: 10vw;
+}
+
+.message{
+  color:gray;
+  font-size: large;
+  padding: 5px;
+  margin-bottom: 18px;;
+}
+
+button span {
+  width: 1.8rem;
+  height:1.8rem;
+}
+
+.my-button {
+  /* Your existing button styles */
+  position: relative;  /* Required for background image positioning */
+}
+
+.my-button.expanded .chevron,
+.my-button:not(.collapsed) .chevron {
+  /* Styles for the chevron icon (up state) */
+  content: url("resources/assets/chevron-down.svg");
+  width: 10px;  /* Adjust width as needed */
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  right: 10px;  /* Adjust position as needed */
+  transform: translateY(-50%);
+}
+
+.my-button.collapsed .chevron {
+  /* Styles for the chevron icon (down state) */
+  content: url("resources/assets/chevron-down.svg");
+  /* Same styles as above for width, height, position, etc. */
+}
+
+
+i.fa {
+  font-size: 50px;
+cursor: pointer;
+user-select: none;
+}
+
+.fa:hover {
+color: darkblue;
+}
+
+
