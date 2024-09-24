@@ -1,112 +1,144 @@
-/* Custom CSS for styling modifications */
-body{
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+  }
+  
+  hr {
+    margin-top: 0;
+  }
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+  }
+  img:hover {
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+  }
+  #navigation span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #292b2e;
+  }
+
+  .container-fluid{
+    padding-right: 10vw;
+    padding-left:10vw;
+  }
+
+  .navbar{
+    padding-left:10vw;
+    padding-top: 40px;
+    padding-bottom:32px ;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 2px;
+  }
+  
+
+#span-cr {
+    border-top: 12px solid transparent;
+    border-image: url('crImagefin.png') 145 round;
+    /* border-radius: 50px; Adjust values accordingly */
+    border-radius: 0px;
+    border-width: 16px;
+  }
+
+
+.navbar-brand{
+    font-size: x-large;
 }
 
-.card-header {
-  background-color: #fff; /* White background color */
-  color: #333; /* Dark text color */
-}
+  .main-heading {
+    font-size: 24px;
+    line-height: 2rem;
+    color: #252b42;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 1px;
+  }
+  .sub-heading {
+    font-size: 18px;
+    line-height: 28px;
+    color: #858585;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
 
-.carousel-item img {
-  max-height: 300px; /* Limit image height */
-  object-fit: cover;
-}
-
-.carousel-caption {
-  position: static;
-  padding: 15px;
-}
-
-.card-caption {
+  
+  
+  .myaccordion .btn {
+    font-weight: bold;
+    color: #737373;
+    padding-left: 0;
+  }
+  
+  .myaccordion .btn-link:hover,
+  .myaccordion .btn-link:focus {
+    text-decoration: none;
+    box-shadow: none;
+  }
+  
+  .card-caption {
     margin-top: 25px;
     font-weight: bolder;
-    font-size: x-large;
+    font-size: 18px;
+    padding-left: 15px;
+    padding-right: 1px;
     
 }
 
- .meta {
-  font-size: 0.9em;
-  margin-top: 5px;
-  color: rgb(66, 65, 65);
-}
 
-.carousel-caption p {
-  margin-top: 10px; /* Space between meta info and description */
-}
+.meta {
+    font-size: 0.9em;
+    margin-top: 5px;
+    color: rgb(66, 65, 65);
+    padding-right: 1px;
+    padding-left: 15px;
+  }
 
-.card-flex{
-  display:flex;
-  flex-direction: column;
-}
+  
+  .card-text {
+    padding-left: 15px;
+    padding-right: 1px;
+  }
+  
+  .side-bar-carousel{
+    height: 100%;
+    width: 0.4px;
+    background-color: rgba(203, 206, 206, 0.149);
+    color: #333;
+    border-radius: 15px;
+  }
 
-.card-body{
-  padding: 1rem;
-}
-
-.btn{
-  color: rgb(77, 76, 76);
-}
-
-.card-heading {
-  font-size: x-large;
-  font-weight: 600;
-  font-stretch:wider;
-}
 
 .container-style {
-  padding-right: 30px;
-  padding-left:30px;
+    padding-right: 30px;
+    padding-left:30px;
+  }
+
+
+  .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    width: 16px;
+    height: 16px;
+
 }
-
-nav {
-  padding-left: 10vw;
-}
-
-.message{
-  color:gray;
-  font-size: large;
-  padding: 5px;
-  margin-bottom: 18px;;
-}
-
-button span {
-  width: 1.8rem;
-  height:1.8rem;
-}
-
-.my-button {
-  /* Your existing button styles */
-  position: relative;  /* Required for background image positioning */
-}
-
-.my-button.expanded .chevron,
-.my-button:not(.collapsed) .chevron {
-  /* Styles for the chevron icon (up state) */
-  content: url("resources/assets/chevron-down.svg");
-  width: 10px;  /* Adjust width as needed */
-  height: 10px;
-  position: absolute;
-  top: 50%;
-  right: 10px;  /* Adjust position as needed */
-  transform: translateY(-50%);
-}
-
-.my-button.collapsed .chevron {
-  /* Styles for the chevron icon (down state) */
-  content: url("resources/assets/chevron-down.svg");
-  /* Same styles as above for width, height, position, etc. */
-}
-
-
-i.fa {
-  font-size: 50px;
-cursor: pointer;
-user-select: none;
-}
-
-.fa:hover {
-color: darkblue;
-}
-
-

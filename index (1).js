@@ -1,12 +1,13 @@
+
 document.addEventListener("DOMContentLoaded", async function () {
     const accordion = document.getElementById("accordion");
 
     // Array of RSS feed URLs
-    const magazines = [
-        "https://flipboard.com/@thenewsdesk/the-latest-on-coronavirus-covid-19-t82no8kmz.rss",
-        "https://flipboard.com/@dfletcher/india-tech-b2meqpd6z.rss",
-        "https://flipboard.com/@thehindu/sportstarlive-rj3ttinvz.rss"
-    ];
+    async function init() {
+        for (let index = 0; index < magazines.length; index++) {
+            const magazines = await fetchFeed(magazines[index]);
+        }
+    }
 
     // Function to fetch and parse RSS feeds
     async function fetchRSS(url) {
@@ -54,15 +55,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             accordionItem.innerHTML = `
           <div class="card-header" id="heading${i}">
-            <button class="buttonic btn card-btn d-flex align-items-center" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="false" aria-controls="collapse${i}">
-              <i class="bi bi-chevron-down"></i>
+            <button class="buttonic btn card-btn d-flex align-items-center ${i === 0 ? 'collapsed' : ''}" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="${i === 0 ? 'true' : 'false'}" aria-controls="collapse${i}">
+              <i class="bi bi-chevron-${i === 0 ? 'up' : 'down'}"></i>
               ${title}
             </button>
           </div>
-          <div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordion">
+          <div id="collapse${i}" class="collapse ${i === 0 ? 'show' : ''}" aria-labelledby="heading${i}" data-parent="#accordion">
             <div class="card-body">
               <div id="carousel${i}" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner pr-5">
                   ${items.map((item, index) => `
                     <div class="carousel-item ${index === 0 ? 'active' : ''}">
                       <div class="card-flex">
@@ -76,18 +77,16 @@ document.addEventListener("DOMContentLoaded", async function () {
                             <span>${new Date(item.pubDate).toLocaleDateString()}</span>
                           </p>
                         </div>
-                        <p class="">${item.description}</p>
+                        <p class="descrip">${item.description}</p>
                       </div>
                     </div>
                   `).join('')}
                 </div>
                 <a class="carousel-control-prev" href="#carousel${i}" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
+                  <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
                 </a>
-                <a class="carousel-control-next" href="#carousel${i}" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
+                <a class="side-bar-carousel carousel-control-next" href="#carousel${i}" role="button" data-slide="next">
+                  <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
                 </a>
               </div>
             </div>
@@ -97,6 +96,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             accordion.appendChild(accordionItem);
         }
     }
+
+    init();
 
     // Call function to populate accordion on page load
     populateAccordion();
